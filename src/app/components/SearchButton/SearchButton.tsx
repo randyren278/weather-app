@@ -1,11 +1,10 @@
 "use client";
 
-import { Dialog,DialogTrigger } from "@radix-ui/react-dialog";
-import { Button } from "@/components/ui/button";
-import React from "react";
 import { commandIcon } from "@/app/utils/icons";
-import { DialogContent } from "@/components/ui/dialog";
-import { Command } from "@/components/ui/command";
+import { Button } from "@/components/ui/button";
+import { Command, CommandInput } from "@/components/ui/command";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import React from "react";
 
 function SearchButton() {
   return (
@@ -25,7 +24,12 @@ function SearchButton() {
         </DialogTrigger>
 
         <DialogContent className="p-0">
-            <Command className="rounded-1g border shawdow-md"></Command>
+          <Command className="rounded-1g border shawdow-md">
+            <CommandInput placeholder="Type a command or search..." />
+            <ul className="px-3 pb-2">
+              <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
+            </ul>
+          </Command>
         </DialogContent>
       </Dialog>
     </div>
