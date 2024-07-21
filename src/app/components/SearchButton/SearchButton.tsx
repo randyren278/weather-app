@@ -4,6 +4,8 @@ import { Dialog,DialogTrigger } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { commandIcon } from "@/app/utils/icons";
+import { DialogContent } from "@/components/ui/dialog";
+import { Command } from "@/components/ui/command";
 
 function SearchButton() {
   return (
@@ -21,6 +23,10 @@ function SearchButton() {
             </div>
           </Button>
         </DialogTrigger>
+
+        <DialogContent className="p-0">
+            <Command className="rounded-1g border shawdow-md"></Command>
+        </DialogContent>
       </Dialog>
     </div>
   );
