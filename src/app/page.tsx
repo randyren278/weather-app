@@ -11,6 +11,7 @@ import Humidity from "./components/Humidity/Humidity";
 import FiveDayForecast from "./components/FiveDayForecast/FiveDayForecast";
 import Visibility from "./components/Visibility/Visibility";
 import Pressure from "./components/Pressure/Pressure";
+import MapBox from "./components/MapBox/MapBox";
 
 
 export default function Home() {
@@ -34,6 +35,12 @@ export default function Home() {
             <Humidity/>
             <Visibility/>
             <Pressure/>
+          </div>
+          <div className="mapbox-con mt-4 flex gap-4">
+            <MapBox/>
+            <div className="states flex flex-col">
+
+            </div>
           </div>
         </div>
       </div>
