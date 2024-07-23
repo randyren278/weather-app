@@ -4,6 +4,7 @@ import Temperature from "./components/Temperature/Temperature";
 import Sunset from "./components/Sunset/Sunset";
 import Compass from "./components/Compass/Compass";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
+import UvIndex from "./components/Uvindex/Uvindex";
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
             <Sunset/>
             <Compass/>
             <DailyForecast/>
+            <UvIndex/>
           </div>
         </div>
       </div>
