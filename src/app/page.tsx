@@ -2,7 +2,8 @@ import AirPollution from "./components/AirPollution/AirPollution";
 import Navbar from "./components/Navbar";
 import Temperature from "./components/Temperature/Temperature";
 import Sunset from "./components/Sunset/Sunset";
-import Compass from "./components/compass/compass";
+import Compass from "./components/Compass/Compass";
+import DailyForecast from "./components/DailyForecast/DailyForecast";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
             <AirPollution/>
             <Sunset/>
             <Compass/>
+            <DailyForecast/>
           </div>
         </div>
       </div>
