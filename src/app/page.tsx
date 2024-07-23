@@ -2,7 +2,7 @@ import AirPollution from "./components/AirPollution/AirPollution";
 import Navbar from "./components/Navbar";
 import Temperature from "./components/Temperature/Temperature";
 import Sunset from "./components/Sunset/Sunset";
-import Compass from "./components/Compass/Compass";
+import Compass from "./components/compass/Compass";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
 import UvIndex from "./components/Uvindex/Uvindex";
 import Population from "./components/Population/Population";
