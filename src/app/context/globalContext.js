@@ -12,6 +12,8 @@ export const GlobalContextProvider = ({ children }) => {
   const [airQuality, setAirQuality] = useState({});
   const [fiveDayForecast, setFiveDayForecast] = useState({});
   const [uvIndex, setUvIndex] = useState({});
+  const [geoCodedList, setGeoCodedList] = useState(defaultStates);
+  const [inputValue, setInputValue,handle] = useState("");
 
   const fetchForecast = async (lat, lon) => {
     try {
@@ -47,7 +49,17 @@ export const GlobalContextProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching the UV index:", error);
     }
+
+  };  const handleInput = (e) => {
+    setInputValue(e.target.value);
+
+    if (e.target.value === "") {
+      setGeoCodedList(defaultStates);
+    }
   };
+
+
+
 
   useEffect(() => {
     const defaultLat = 40.4165; // Default latitude
@@ -59,8 +71,12 @@ export const GlobalContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ forecast, airQuality, fiveDayForecast, uvIndex }}>
-      <GlobalContextUpdate.Provider value={{ setForecast, setAirQuality, setFiveDayForecast, setUvIndex }}>
+    <GlobalContext.Provider
+      value={{ forecast, airQuality, fiveDayForecast, uvIndex, geoCodedList,inputValue }}
+    >
+      <GlobalContextUpdate.Provider
+        value={{ setForecast, setAirQuality, setFiveDayForecast, setUvIndex }}
+      >
         {children}
       </GlobalContextUpdate.Provider>
     </GlobalContext.Provider>
