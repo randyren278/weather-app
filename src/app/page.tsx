@@ -10,6 +10,7 @@ import FeelsLike from "./components/FeelsLike/FeelsLike";
 import Humidity from "./components/Humidity/Humidity";
 import FiveDayForecast from "./components/FiveDayForecast/FiveDayForecast";
 import Visibility from "./components/Visibility/Visibility";
+import Pressure from "./components/Pressure/Pressure";
 
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
             <FeelsLike/>
             <Humidity/>
             <Visibility/>
+            <Pressure/>
           </div>
         </div>
       </div>
