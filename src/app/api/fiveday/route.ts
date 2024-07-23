@@ -7,8 +7,8 @@ export async function GET(req: NextRequest) {
 
     const searchParams = req.nextUrl.searchParams;
 
-    const lat = 40.4165;
-    const lon = -3.7026;
+    const lat = 41.3828939;
+    const lon = 2.1774322;
     const dailyUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
     const dailyRes = await fetch(dailyUrl, {
@@ -23,3 +23,4 @@ export async function GET(req: NextRequest) {
     return new Response("Error in getting daily data ", { status: 500 });
   }
 }
+

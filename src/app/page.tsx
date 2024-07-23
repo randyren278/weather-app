@@ -6,6 +6,8 @@ import Compass from "./components/Compass/Compass";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
 import UvIndex from "./components/Uvindex/Uvindex";
 import Population from "./components/Population/Population";
+import FeelsLike from "./components/FeelsLike/FeelsLike";
+import Humidity from "./components/Humidity/Humidity";
 
 
 export default function Home() {
@@ -24,6 +26,8 @@ export default function Home() {
             <DailyForecast/>
             <UvIndex/>
             <Population/>
+            <FeelsLike/>
+            <Humidity/>
           </div>
         </div>
       </div>
