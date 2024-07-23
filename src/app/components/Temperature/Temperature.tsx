@@ -12,21 +12,25 @@ import {
     snow,
   } from "@/app/utils/icons";
 import moment from "moment"
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Temperature() {
   const { forecast } = useGlobalContext();
 
   const { main, timezone, name, weather } = forecast;
 
-  if (!forecast || !weather) return <div>Loading...</div>;
+  if (!forecast || !weather) {
+    return <Skeleton className="h-[25rem] w-full" />;
+  }
+  
 
   const temp = kelvintoCelsius(main?.temp);
   const minTemp = kelvintoCelsius(main?.temp_min);
   const maxTemp = kelvintoCelsius(main?.temp_max);
 
   //state
-  const [localTime, setLocalTime] = useState<string>("");
   const [currentDay, setCurrentDay] = useState<string>("");
+  const [localTime, setLocalTime] = useState<string>("");
 
   const { main: weatherMain, description } = weather[0];
 
