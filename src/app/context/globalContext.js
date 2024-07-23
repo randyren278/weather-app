@@ -13,11 +13,14 @@ export const GlobalContextProvider = ({ children }) => {
   const [fiveDayForecast, setFiveDayForecast] = useState({});
   const [uvIndex, setUvIndex] = useState({});
   const [geoCodedList, setGeoCodedList] = useState(defaultStates);
-  const [inputValue, setInputValue,handle] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [activeCityCoords, setActiveCityCoords] = useState([
+    51.752021, -1.257726,
+  ]);
 
   const fetchForecast = async (lat, lon) => {
     try {
-      const res = await axios.get(`/api/weather?lat=${lat}&lon=${lon}`); // Corrected template literal
+      const res = await axios.get(`/api/weather?lat=${lat}&lon=${lon}`);
       setForecast(res.data);
     } catch (error) {
       console.log("Error fetching forecast data:", error.message);
@@ -26,7 +29,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   const fetchAirQuality = async (lat, lon) => {
     try {
-      const res = await axios.get(`/api/pollution?lat=${lat}&lon=${lon}`); // Corrected template literal
+      const res = await axios.get(`/api/pollution?lat=${lat}&lon=${lon}`);
       setAirQuality(res.data);
     } catch (error) {
       console.log("Error fetching air pollution data: ", error.message);
@@ -35,7 +38,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   const fetchFiveDayForecast = async (lat, lon) => {
     try {
-      const res = await axios.get(`/api/fiveday?lat=${lat}&lon=${lon}`); // Corrected template literal
+      const res = await axios.get(`/api/fiveday?lat=${lat}&lon=${lon}`);
       setFiveDayForecast(res.data);
     } catch (error) {
       console.log("Error fetching five day forecast data: ", error.message);
@@ -44,13 +47,23 @@ export const GlobalContextProvider = ({ children }) => {
 
   const fetchUvIndex = async (lat, lon) => {
     try {
-      const res = await axios.get(`/api/uv?lat=${lat}&lon=${lon}`); // Corrected template literal
+      const res = await axios.get(`/api/uv?lat=${lat}&lon=${lon}`);
       setUvIndex(res.data);
     } catch (error) {
       console.error("Error fetching the UV index:", error);
     }
+  };
 
-  };  const handleInput = (e) => {
+  const fetchGeoCodedList = async (search) => {
+    try {
+      const res = await axios.get(`/api/geocoded?search=${search}`);
+      setGeoCodedList(res.data);
+    } catch (error) {
+      console.log("Error fetching geocoded list: ", error.message);
+    }
+  };
+
+  const handleInput = (e) => {
     setInputValue(e.target.value);
 
     if (e.target.value === "") {
@@ -58,24 +71,20 @@ export const GlobalContextProvider = ({ children }) => {
     }
   };
 
-
-
-
   useEffect(() => {
-    const defaultLat = 40.4165; // Default latitude
-    const defaultLon = -3.7026; // Default longitude
-    fetchForecast(defaultLat, defaultLon);
-    fetchAirQuality(defaultLat, defaultLon);
-    fetchFiveDayForecast(defaultLat, defaultLon);
-    fetchUvIndex(defaultLat, defaultLon); // Added call to fetch UV index
-  }, []);
+    fetchForecast(activeCityCoords[0], activeCityCoords[1]);
+    fetchAirQuality(activeCityCoords[0], activeCityCoords[1]);
+    fetchFiveDayForecast(activeCityCoords[0], activeCityCoords[1]);
+    fetchUvIndex(activeCityCoords[0], activeCityCoords[1]);
+    fetchGeoCodedList("liverpool");
+  }, [activeCityCoords]);
 
   return (
     <GlobalContext.Provider
-      value={{ forecast, airQuality, fiveDayForecast, uvIndex, geoCodedList,inputValue }}
+      value={{ forecast, airQuality, fiveDayForecast, uvIndex, geoCodedList, inputValue, handleInput,setActiveCityCoords }}
     >
       <GlobalContextUpdate.Provider
-        value={{ setForecast, setAirQuality, setFiveDayForecast, setUvIndex }}
+        value={{ setActiveCityCoords}}
       >
         {children}
       </GlobalContextUpdate.Provider>
