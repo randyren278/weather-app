@@ -5,6 +5,7 @@ import Sunset from "./components/Sunset/Sunset";
 import Compass from "./components/Compass/Compass";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
 import UvIndex from "./components/Uvindex/Uvindex";
+import Population from "./components/Population/Population";
 
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
             <Compass/>
             <DailyForecast/>
             <UvIndex/>
+            <Population/>
           </div>
         </div>
       </div>
