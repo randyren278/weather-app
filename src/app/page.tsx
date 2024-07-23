@@ -8,6 +8,8 @@ import UvIndex from "./components/Uvindex/Uvindex";
 import Population from "./components/Population/Population";
 import FeelsLike from "./components/FeelsLike/FeelsLike";
 import Humidity from "./components/Humidity/Humidity";
+import FiveDayForecast from "./components/FiveDayForecast/FiveDayForecast";
+import Visibility from "./components/Visibility/Visibility";
 
 
 export default function Home() {
@@ -17,6 +19,7 @@ export default function Home() {
       <div className="pb-4 flex flex-col gap-4 md:flex-row">
         <div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
           <Temperature/>
+          <FiveDayForecast/>
         </div>
         <div className="flex flex-col w-full">
           <div className="instruments grid h-full gap-4 col-span-full sm-2:col-span-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -28,6 +31,7 @@ export default function Home() {
             <Population/>
             <FeelsLike/>
             <Humidity/>
+            <Visibility/>
           </div>
         </div>
       </div>
