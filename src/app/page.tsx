@@ -1,3 +1,4 @@
+"use client";
 import AirPollution from "./components/AirPollution/AirPollution";
 import Navbar from "./components/Navbar";
 import Temperature from "./components/Temperature/Temperature";
@@ -13,8 +14,21 @@ import Visibility from "./components/Visibility/Visibility";
 import Pressure from "./components/Pressure/Pressure";
 import MapBox from "./components/MapBox/MapBox";
 import defaultstates from "./utils/defaultstates";
+import { useGlobalContextUpdate } from "./context/globalContext";
 
 export default function Home() {
+
+  const { setActiveCityCoords } = useGlobalContextUpdate();
+
+  const getClickedCityCords = (lat: number, lon: number) => {
+    setActiveCityCoords([lat, lon]);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  
   return (
     <main className="mx-[1-rem] lg:mx-[2-rem] x1:mx-[6rem] 2xl:mx-[16rem] m-auto">
       <Navbar />
@@ -46,7 +60,12 @@ export default function Home() {
                 {defaultstates.map((state, index) => {
                   return (
                     <div
-                      key={index} className="border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none">
+                      key={index}
+                      className="border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none"
+                      onClick={() => {
+                        getClickedCityCords(state.lat, state.lon);
+                      }}
+                    >
                       <p className="px-6 py-4">{state.name}</p>
                     </div>
                   );
@@ -60,16 +79,14 @@ export default function Home() {
       <footer className="py-4 flex justify-center pb-8">
         <p className="footer-text text-sm flex items-center gap-1">
           Made by
-          <a href="https://www.linkedin.com/in/randyren278/"
+          <a
+            href="https://www.linkedin.com/in/randyren278/"
             target="_blank"
-            className="font-bold">
+            className="font-bold"
+          >
             Randy
           </a>
-          
-
-
         </p>
-
       </footer>
     </main>
   );
