@@ -43,16 +43,16 @@ export default function Home() {
           </div>
           <div className="flex flex-col w-full">
             <div className="instruments grid h-full gap-4 col-span-full sm-2:col-span-2 lg:grid-cols-3 xl:grid-cols-4">
-              <AirPollution />
-              <Sunset />
-              <Compass />
               <DailyForecast />
+              <AirPollution />
               <UvIndex />
               <Population />
-              <FeelsLike />
-              <Humidity />
+              <Sunset />
+              <Compass />
               <Visibility />
               <Pressure />
+              <FeelsLike />
+              <Humidity />
             </div>
             <div className="mapbox-con mt-4 flex gap-4">
               <MapBox />
