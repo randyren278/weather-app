@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Next.js</title>
+        <title>randy-weather-app</title>
       </head>
       <body className={inter.className}>
         <ThemeProvider 
