@@ -1,10 +1,10 @@
 const defaultstates = [
     {
-      name: "Madrid",
-      country: "ES",
-      state: "Madrid",
-      lat: 40.4165,
-      lon: -3.7026,
+      name: "Toronto",
+      country: "CA",
+      state: "Ontario",
+      lat: 43.6534817,
+      lon: -79.3839347,
     },
     {
       name: "London",
@@ -21,18 +21,18 @@ const defaultstates = [
       lon: -74.006,
     },
     {
-      name: "Sydney",
-      country: "AU",
-      state: "New South Wales",
-      lat: -33.8688197,
-      lon: 151.2092955,
+      name: "Dubai",
+      country: "UAE",
+      state: "",
+      lat: 25.0742823,
+      lon: 55.1885387,
     },
     {
-      name: "Barcelona",
-      country: "ES",
-      state: "Catalonia",
-      lat: 41.3828939,
-      lon: 2.1774322,
+      name: "Beijing",
+      country: "CN",
+      state: "Hebei",
+      lat: 39.9057136,
+      lon: 116.3912972,
     },
   ];
   
