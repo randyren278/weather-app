@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import AirPollution from "./components/AirPollution/AirPollution";
 import Navbar from "./components/Navbar";
 import Temperature from "./components/Temperature/Temperature";
@@ -13,10 +14,12 @@ import Humidity from "./components/Humidity/Humidity";
 import FiveDayForecast from "./components/FiveDayForecast/FiveDayForecast";
 import Visibility from "./components/Visibility/Visibility";
 import Pressure from "./components/Pressure/Pressure";
-import MapBox from "./components/MapBox/MapBox";
 import defaultstates from "./utils/defaultstates";
 import { useGlobalContextUpdate } from "./context/globalContext";
 import { BackgroundBeams } from "./components/BackgroundBeams/BackgroundBeams";
+
+// Dynamically import MapBox component
+const MapBox = dynamic(() => import('./components/MapBox/MapBox'), { ssr: false });
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
