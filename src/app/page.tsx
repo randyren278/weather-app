@@ -21,12 +21,13 @@ export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
 
   const getClickedCityCords = (lat: number, lon: number) => {
-    setActiveCityCoords([lat, lon]);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (typeof window !== "undefined") {
+      setActiveCityCoords([lat, lon]);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
