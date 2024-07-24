@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import AirPollution from "./components/AirPollution/AirPollution";
 import Navbar from "./components/Navbar";
 import Temperature from "./components/Temperature/Temperature";
@@ -19,10 +20,16 @@ import { BackgroundBeams } from "./components/BackgroundBeams/BackgroundBeams";
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const getClickedCityCords = (lat: number, lon: number) => {
-    if (typeof window !== "undefined") {
+    if (isClient) {
       setActiveCityCoords([lat, lon]);
+
       window.scrollTo({
         top: 0,
         behavior: "smooth",
