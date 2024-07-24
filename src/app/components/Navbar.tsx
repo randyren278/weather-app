@@ -19,7 +19,6 @@ function Navbar() {
         <SearchButton />
 
         <div className="btn-group flex items-center gap-2">
-          <ThemeToggle />
 
           <Button
             className="source-code flex items-center gap-2"
