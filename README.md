@@ -1,5 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Overview
+
+The Weather App provides real-time weather updates and forecasts for various locations. It features a modern and responsive design with support for dark mode. Users can search for cities and get detailed weather information, including temperature, humidity, air quality, and more.
+
+## Features
+
+- Real-time weather updates
+- 5-day weather forecast
+- Air quality index
+- UV index
+- Humidity, visibility, and pressure details
+- Interactive map with top large cities
+- Dark mode support
+- Animated background effects
+
+## Gallery
+![alt text](<Screenshot 2024-07-23 at 10.42.55 PM.png>)
+
 ## Getting Started
 
 First, run the development server:
