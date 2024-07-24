@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>randy's-weather</title>
+        <title>randy.weather</title>
       </head>
       <body className={inter.className}>
         <ThemeProvider 
